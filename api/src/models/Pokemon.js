@@ -15,18 +15,18 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true,
     },
-    /* createInDb: {
+    createInDb: {
       type: DataTypes. BOOLEAN,
       allowNull: false,
       defaultValue: true,
-    }, */
-    life: {
+    },
+    hp: {
       type: DataTypes.INTEGER
     },
-    force: {
+    attack: {
       type: DataTypes.INTEGER
     },
-    defending: {
+    defense: {
       type: DataTypes.INTEGER
     },
     speed: {
@@ -38,6 +38,9 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.INTEGER
     },
+    sprite: {
+      type: DataTypes.STRING
+    }
   });
 };
 

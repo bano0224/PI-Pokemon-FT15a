@@ -10,7 +10,9 @@ module.exports = (sequelize) => {
         }, */
         name: {
           type: DataTypes.STRING, 
-          allowNull: false
+          allowNull: false,
+          unique: true,
+          primaryKey: true //el name va a ser mi id, cuando haga la unión de las dos tablas
         },
       });
 }
