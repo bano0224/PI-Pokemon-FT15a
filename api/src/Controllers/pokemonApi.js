@@ -22,10 +22,11 @@ const getPokemonApi = async () => {
                     speed: pokemon.stats[5].base_stat,
                     height: pokemon.height,
                     weight: pokemon.weight,
-                    sprite: pokemon.sprites.other.dream_world.front_defult,
-                    types: pokemon.types.map(el => el.type.name)
+                    sprite: pokemon.sprites.other.dream_world.front_default,
+                    types: pokemon.types.length > 1 ? [{name :pokemon.types[0].type.name}, {name :pokemon.types[1].type.name}] : [{name :pokemon.types[0].type.name}]
                 })
             })
+            console.log(pokemons)
             return pokemons;
         })
         return pokeDex;

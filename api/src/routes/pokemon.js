@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const getAllPokemon = require('../Controllers/allPokemon');
+const getPokemonApi = require('../Controllers/pokemonApi')
 const addPokemon = require('../Controllers/addPokemon')
 
 const router = Router();
@@ -59,5 +60,7 @@ router.post('/', async (req, res, next) => {
         next(err)
     }
 });
+
+
 
 
