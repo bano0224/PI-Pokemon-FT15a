@@ -4,14 +4,14 @@ import style from './landingPage.module.css'
 
 const landingPage = () => {
     return(
-        <>
-        <div className={style.div}>
-            <h1>Atraparlos ya! Pokemón!</h1>
-        </div>
-        <Link to = '/home'>
-            <button>Ingresar</button>
-        </Link>
-        </>
+        <body className={style.body}>
+            <div>
+                <h1>Pokemón PI</h1>
+            </div>
+            <Link to = '/home'>
+                <button>Ingresar</button>
+            </Link>
+        </body>
     )
     
 }

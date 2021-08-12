@@ -9,8 +9,8 @@ function App() {
       <Switch> //matchea la primera ruta que coincida con el path solicitado
         <Route exact path='/' component={landingPage} />
         <Route path='/home' component={Home} />
+        {/* <Route path='/pokemon' component={createPokemon}/> */}
       </Switch>
-      <h1>Henry Pokemon</h1>
     </div>
   );
 }

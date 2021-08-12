@@ -3,20 +3,38 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-image: url('https://images2.alphacoders.com/206/thumb-1920-206300.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .page {
     display:flex;
-    justify-content:center;
     flex-direction: row;
-    /* padding: 500 px; */
-    
+    justify-content:space-around;
+    align-items: center;
+    padding: 0px;
 }
 
 .div {
     /* width: 800px; */
-    display:flex;
-    flex-direction:row;
-    /* justify-content: space-around; */
-    background-color: grey;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
 }
+
+.card {
+    position: relative;
+    height: fit-content;
+    max-width: 300px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: red;
+    border: 1px solid black;
+}
+

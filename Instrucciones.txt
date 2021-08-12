@@ -1,0 +1,9 @@
+characters:
+- tengo que poder traer los personajes de la api, como también los creados
+- tengo que poder trarme solo un personaje (id)
+- tengo que poder agregar un personajes (body)
+- tengo que poder editar (id, body)
+-tengo que poder borrar un personaje (id)
+
+type:
+-traer un personaje por tipo (id)
