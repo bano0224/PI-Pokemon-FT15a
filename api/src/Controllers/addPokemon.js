@@ -1,7 +1,6 @@
 const {Pokemon, Type} = require('../db');
 
-const addPokemon = async (name, createInDb, hp, attack, defense, speed, height, weight, sprite, type) => {
-    console.log("TYPE POR PROPS",type)
+const addPokemon = async (name, createInDb, hp, attack, defense, speed, height, weight, sprite, types) => {
     try{
         const addNewPokemon = await Pokemon.create({
             name: name,
@@ -14,17 +13,18 @@ const addPokemon = async (name, createInDb, hp, attack, defense, speed, height, 
             weight: weight,
             sprite: sprite,
         })
-        
+        console.log('ACÁ VA EL TYPE', types)
         const typeDb = await Type.findAll({
-            where: {name: type}
+            where: {name: types}
         })
-
-        addNewPokemon.addType(typeDb)
+        
+        await addNewPokemon.addType(typeDb)
         return addNewPokemon;
         
     } catch(err) {
-        return "No se pudo crear el personaje"
+        console.log(err)
     }
 };
 
 module.exports = addPokemon
+

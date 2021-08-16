@@ -49,10 +49,10 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     
-    const {name, createInDb, hp, attack, defense, speed, height, weight, sprite, type} = req.body
+    const {name, createInDb, hp, attack, defense, speed, height, weight, sprite, types} = req.body
 
     try {
-        const create = await addPokemon(name, createInDb, hp, attack, defense, speed, height, weight, sprite, type)
+        const create = await addPokemon(name, createInDb, hp, attack, defense, speed, height, weight, sprite, types)
         //console.log(create)
         res.status(200).send(create)
         //res.send("personaje creado con éxito")

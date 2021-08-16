@@ -26,7 +26,6 @@ const getPokemonApi = async () => {
                     types: pokemon.types.length > 1 ? [{name :pokemon.types[0].type.name}, {name :pokemon.types[1].type.name}] : [{name :pokemon.types[0].type.name}]
                 })
             })
-            console.log(pokemons)
             return pokemons;
         })
         return pokeDex;
