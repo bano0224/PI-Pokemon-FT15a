@@ -1,13 +1,17 @@
-import {GET_POKEMON, GET_TYPES, POST_POKEMON, FILTERED_BY_TYPES, FILTERED_BY_ORIGIN,
+import {POST_POKEMON, FILTERED_BY_TYPES, FILTERED_BY_ORIGIN,
 FILTERED_BY_NAME, FILTERED_BY_POWER, GET_BY_NAME} from '../actions/index';
+import { GET_BY_ID } from '../actions/getById'
+import { GET_POKEMON } from '../actions/getPokemons'
+import { GET_TYPES } from '../actions/getTypes'
 
 
 const initialState = {
     pokemons: [], //filter, reducer 
     allPokemons: [],
     types: [],
-    pokemonsDb: [],
-    pokemonsApi: []
+    pokemonDetail: [],
+    /* pokemonsDb: [],
+    pokemonsApi: [] */
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -59,7 +63,10 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case FILTERED_BY_NAME:
-            const orderPokemon = state.allPokemons
+            if (action.payload === "asc") 
+                return { ...state, pokemons: [...state.pokemons].sort((name1, name2) => name1.name > name2.name ? 1 : -1) }
+                return  { ...state, pokemons: [...state.pokemons].sort((name1, name2) => name1.name > name2.name ? -1 : 1) } 
+            /* const orderPokemon = state.allPokemons
             const orderName = action.payload === 'asc' ?
             orderPokemon.sort(function(a, b) {
                 if(a.name > b.name) {
@@ -83,7 +90,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: orderName
-            }
+            } */
 
         case FILTERED_BY_POWER:
             const orderMaxPower = state.allPokemons
@@ -109,6 +116,13 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: orderByPower
+            }
+
+        case GET_BY_ID:
+            console.log('REDUCER',action.payload)
+            return {
+                ...state,
+                pokemonDetail: action.payload
             }
             
         

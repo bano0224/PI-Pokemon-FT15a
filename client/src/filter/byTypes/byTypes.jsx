@@ -23,7 +23,7 @@ const FilterByTypes = ({allTypes}) => {
                         </option>
                     )})
                 }
-                </select>
+            </select>
         </div>
     )
 }

@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 import style from './landingPage.module.css'
 
 const landingPage = () => {
+
     return(
-        <body className={style.body}>
-            <div>
-                <h1>Pokemón PI</h1>
-            </div>
-            <Link to = '/home'>
-                <button>Ingresar</button>
-            </Link>
-        </body>
+        <div className={style.landingPage}>
+           <div className={style.container}>
+                <Link to='/home' className={style.pokebola}>
+		            <div class={style.pokebola2}></div>
+	            </Link> 
+           </div>
+        </div>
     )
     
 }

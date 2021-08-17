@@ -16,7 +16,7 @@ const FilterByAz = ({setCurrentPage, setOrder}) => {
     return(
         <div>
             <label>Ordenar Pokemons A-Z</label>
-            <select onChange={e => {handleOrderByName(e)}}>
+            <select onChange={e => handleOrderByName(e)}>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>

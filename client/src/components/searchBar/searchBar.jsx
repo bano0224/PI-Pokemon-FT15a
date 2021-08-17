@@ -9,6 +9,7 @@ const SearchBar = () => {
     const handleChange = (e) => {
         e.preventDefault();
         setPokemonName(e.target.value)
+        
     }
 
     const handleSubmit = (e) => {

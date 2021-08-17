@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemons, getTypes, filteredByTypes, filteredByOrigin, filterByName, filterByPower } from '../../actions';
+import {filteredByTypes, filteredByOrigin, filterByName, filterByPower } from '../../actions';
+import getPokemons from '../../actions/getPokemons';
+import getTypes from '../../actions/getTypes';
 import { Link } from 'react-router-dom';
 import PageComponent from '../paged/paged'
 import style from './home.module.css'
@@ -12,14 +14,14 @@ import FilterByPower from '../../filter/byPower/byPower';
 import FilterByTypes  from '../../filter/byTypes/byTypes';
 import FilterByOrigin from '../../filter/byOrigin/byOrigin';
 import CleanFilter from '../../filter/cleanFilters/cleanFilters';
-
-
-
+import NavBar from '../navBar/navBar';
+import Loading from '../loading/loading';
 
 const Home = () => {
 
     const dispatch = useDispatch();
     const allPokemons = useSelector(state => state.pokemons) //en la constante //allPokemons me traigo todo el estado
+    const cleanPokemons = useSelector(state => state.allPokemons)
     const allTypes = useSelector(state => state.types)
     
     const [currentPage, setCurrentPage] = useState(1); //mi página actual que va a arrancar en 1
@@ -38,23 +40,38 @@ const Home = () => {
     },[dispatch])
 
     return(
-        <div className={style.divGeneral}>
+    <>
+        {
+            (cleanPokemons.length === 0) ?
             
-            <div>
-                <h1>POKEMON</h1>
-                <Link to = '/pokemons'>Crear Pokemon</Link>
-                <SearchBar/>
+            <Loading className={style.loading}/>
+            :
+        <div className={style.bodyDiv}>
+            <div className={style.header}>
+                <h1 className={style.title}>Bienvenido a tu Pokedex!</h1>        
+            </div>
+            <div className={style.nav}>
                 <label>Filtrar Pokemons</label>
+                <div className={style.filter}>
                 <FilterByAz setCurrentPage={setCurrentPage} setOrder={setOrder} />
                 <FilterByPower setCurrentPage={setCurrentPage} setOrder={setOrder}/>
                 <FilterByTypes allTypes={allTypes}/>
                 <FilterByOrigin/>
                 <CleanFilter/>
+                </div>
+                <div className={style.page}>
+                <PageComponent className={style.pagination} charactersPage={charactersPage} allPokemons={allPokemons.length} page={page}/>
+                </div>
+            </div> 
+            <div className={style.section}>
+                <RenderPokemons currentCharacters={currentCharacters} allPokemons={allPokemons.length}/>
             </div>
-            <RenderPokemons currentCharacters={currentCharacters} allPokemons={allPokemons.length}/>
-            <PageComponent charactersPage={charactersPage} allPokemons={allPokemons.length} page={page}/>
-            <footer/>
+            <div className={style.footer}>
+            </div>    
         </div>
+        }
+    
+    </>
     )
 };
 

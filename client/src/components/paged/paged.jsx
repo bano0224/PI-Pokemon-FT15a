@@ -10,16 +10,16 @@ export default function PageComponent({charactersPage, allPokemons, page}) { //m
 
 
     return(
-        <nav>
-            <ul className={style.page}>
+        <div className={style.page}>
+            <div className={style.page}>
                 {
                     pageNumbers && pageNumbers.map(number => (
-                        <li className={style.number} key={number}>
+                        <button class="number red" key={number}>
                             <a onClick={() => page(number)}>{number}</a>
-                        </li>
+                        </button>
                     ))}
-            </ul>
-        </nav>
+            </div>
+        </div>
     )
 }
 

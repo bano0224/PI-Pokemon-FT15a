@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getPokemons } from '../../actions';
+import getPokemons from '../../actions/getPokemons';
+import style from './cleanFilters.module.css'
 
 
 const CleanFilter = () => {
@@ -13,7 +14,7 @@ const CleanFilter = () => {
 
     return(
         <div>
-            <button onClick={e=>{handleSubmit(e)}}>Limpiar filtros</button>
+            <button className={style.Filter} onClick={e=>{handleSubmit(e)}}>Limpiar filtros</button>
         </div>
     )
 }
