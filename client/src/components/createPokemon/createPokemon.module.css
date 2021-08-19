@@ -181,7 +181,7 @@ form input:focus ~ .bar:before, form input:focus ~ .bar:after {
 .universal {
     height: 100%;
     width: 100%;
-    border: 5px yellow solid;
+    /* border: 5px yellow solid; */
     /* background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%); */
     background-image: url('./laboratorioPokemon.jpg');
 
@@ -269,4 +269,10 @@ form input:focus ~ .bar:before, form input:focus ~ .bar:after {
 
 .mask {
   background: rgba(5, 5, 5, 0.75);
+}
+
+.error {
+  color:red;
+  display: flex;
+  justify-content: flex-start;
 }

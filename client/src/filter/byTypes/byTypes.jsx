@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filteredByTypes } from '../../actions';
+import filteredByTypes from '../../actions/filteredByTypes';
 import style from './byTypes.module.css'
 
 

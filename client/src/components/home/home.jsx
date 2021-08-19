@@ -18,8 +18,7 @@ import Footer from '../footer/footer';
 const Home = () => {
 
     const dispatch = useDispatch();
-    const allPokemons = useSelector(state => state.pokemons) //en la constante //allPokemons me traigo todo el estado
-    const cleanPokemons = useSelector(state => state.allPokemons)
+    const allPokemons = useSelector(state => state.pokemons)
     const allTypes = useSelector(state => state.types)
     const loading = useSelector(state => state.loading)
     
@@ -28,8 +27,8 @@ const Home = () => {
     const [order, setOrder] = useState('');
     const indexLastCharacter = currentPage * charactersPage;
     const indexFirstCharacter = indexLastCharacter - charactersPage;
-    const currentCharacters = allPokemons.slice(indexFirstCharacter, indexLastCharacter) //me va a devolver un arreglo donde en la primer página va a tener los elementos de la posición 0 a la 5
-    const page = (pageNumber) => { //me va a ayudar a realizar el renderizado
+    const currentCharacters = allPokemons.slice(indexFirstCharacter, indexLastCharacter) //me va a devolver un arreglo donde en la primer página va a tener los elementos de la posición 0 a la 8
+    const page = (pageNumber) => { 
         setCurrentPage(pageNumber)
     } 
     

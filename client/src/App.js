@@ -15,7 +15,6 @@ function App() {
         <Route path='/pokemons' component={CreatePokemon}/>
         <Route path='/pokemon/:id' component={PokemonDetail}/>
       </Switch>
-      {/* <Route path='/home' component={NavBar}/> */}
     </div>
   );
 }

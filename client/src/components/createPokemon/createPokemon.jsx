@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPokemon } from '../../actions';
+import createPokemon from '../../actions/createPokemon';
 import getTypes from '../../actions/getTypes'
 import style from './createPokemon.module.css'
 import NavBar from '../navBar/navBar';
 import Footer from '../footer/footer';
 
+
+
 const CreatePokemon = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const getAllTypes = useSelector(state => state.types)
-    console.log(getAllTypes)
-    /* const [errors, setErrors] = useState({}); */
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         dispatch(getTypes())
@@ -75,6 +76,18 @@ const CreatePokemon = () => {
         })
     }
     
+    /* const validate = () => {
+        let errors = {};
+        if(!input.name) {
+            errors.name = 'Es obligatorio colocar un nombre';
+        } else if(!input.sprite) {
+            errors.sprite = 'No olvides seleccionar tu imagen';
+        } else if(!input.hp) {
+            errors.hp = 'El pokemon debe tener vida'
+        }
+        return errors;
+    } */
+    
     return(
         <div className={style.universal}>
             <NavBar className={style.nav}/>
@@ -82,14 +95,13 @@ const CreatePokemon = () => {
             <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
                 <div className={style.group}>
                 
-                <input required type='text' name='name' onChange={e => handleChange(e)}/>
+                <input required value={input.name} type='text' name='name' onChange={e => handleChange(e)}/>{/* {errors.name && (<p className={style.error}>{errors.name}</p>)} */}
                 <span className={style.highlight}></span>
                 <span className={style.bar}></span>
                 <label>Nombre:</label>
                 </div>
                 <div className={style.group}>
-            
-                <input required type='number' min='0' max='200' name='hp' onChange={e => handleChange(e)}/>
+                <input required type='number' min='0' max='200' name='hp' onChange={e => handleChange(e)}/>{/* {errors.hp && (<p className={style.error}>{errors.hp}</p>)} */}
                 <span className={style.highlight}></span>
                 <span className={style.bar}></span>
                 <label>Salud:</label>
@@ -132,7 +144,7 @@ const CreatePokemon = () => {
                 </div>
                 <div>
                 <p className={style.p}>Tipo:</p>
-                <select className={style.selectCss} onChange={(e) => handleChangeType(e)} >
+                <select className={style.selectCss} onChange={(e) => handleChangeType(e)}>
                 {
                    getAllTypes?.map((type, i) => (
                         <option key={i} value={type.name}>{type.name}</option>

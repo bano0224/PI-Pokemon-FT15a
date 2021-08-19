@@ -1,15 +1,19 @@
-import {POST_POKEMON, FILTERED_BY_TYPES, FILTERED_BY_ORIGIN,
-FILTERED_BY_NAME, FILTERED_BY_POWER} from '../actions/index';
+import { POST_POKEMON } from '../actions/createPokemon';
 import { GET_BY_ID } from '../actions/getById'
 import { GET_POKEMON } from '../actions/getPokemons'
 import { GET_TYPES } from '../actions/getTypes'
 import { SET_LOADING } from '../actions/setLoading';
 import { RESET_POKEMON } from '../actions/resetPokemon';
 import { GET_BY_NAME } from '../actions/getPokemonByName';
+import { FILTERED_BY_TYPES } from '../actions/filteredByTypes';
+import { FILTERED_BY_ORIGIN } from '../actions/filteredByOrigin';
+import { FILTERED_BY_NAME } from '../actions/filteredByName';
+import { FILTERED_BY_POWER } from '../actions/filterByPower';
+
 
 
 const initialState = {
-    pokemons: [], //filter, reducer 
+    pokemons: [], 
     allPokemons: [],
     types: [],
     pokemonDetail: [],
@@ -60,7 +64,6 @@ const rootReducer = (state = initialState, action) => {
         case FILTERED_BY_ORIGIN:
             const allPokemon = state.allPokemons
             const filterCreate = action.payload === 'created' ? allPokemon.filter(e => e.createInDb) : allPokemon.filter(e => !e.createInDb)
-            console.log(filterCreate)
             return{
                 ...state,
                 pokemons: action.payload === 'all' ? allPokemon : filterCreate
@@ -89,7 +92,7 @@ const rootReducer = (state = initialState, action) => {
                 }
                 return 0;
             })
-            console.log(orderName)
+            
             return {
                 ...state,
                 pokemons: orderName
@@ -141,7 +144,6 @@ const rootReducer = (state = initialState, action) => {
                 pokemonDetail: []
             }
             
-        
         default:
             return state;
     }

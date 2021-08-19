@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { filterByPower } from '../../actions';
+import filterByPower from '../../actions/filterByPower';
 import style from './byPower.module.css'
 
 

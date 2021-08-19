@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filteredByOrigin } from '../../actions';
+import filteredByOrigin from '../../actions/filteredByOrigin';
 import style from './byOrigin.module.css'
 
 

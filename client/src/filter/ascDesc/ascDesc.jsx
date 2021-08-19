@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filterByName } from '../../actions';
+import filterByName from '../../actions/filteredByName';
 import style from './ascDesc.module.css'
 
 
