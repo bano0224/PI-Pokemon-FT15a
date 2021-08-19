@@ -3,14 +3,14 @@ import Card from '../components/Card/card';
 import { Link } from 'react-router-dom';
 import style from './renderPokemon.module.css';
 
-const RenderPokemons = ({currentCharacters, allPokemons}) => {
+const RenderPokemons = ({currentCharacters}) => {
 console.log(currentCharacters)
     return(
         <div className={style.cards}>
             {
               currentCharacters?.map((pokemon, i) => (
                 <div className={style.card}key={i}>
-                    <Link to={`/pokemon/${pokemon.id}`}>
+                    <Link className={style.link} to={`/pokemon/${pokemon.id}`}>
                     <Card 
                         name={pokemon.name}
                         id={pokemon.id}

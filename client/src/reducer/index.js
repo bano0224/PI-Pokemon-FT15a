@@ -1,8 +1,11 @@
 import {POST_POKEMON, FILTERED_BY_TYPES, FILTERED_BY_ORIGIN,
-FILTERED_BY_NAME, FILTERED_BY_POWER, GET_BY_NAME} from '../actions/index';
+FILTERED_BY_NAME, FILTERED_BY_POWER} from '../actions/index';
 import { GET_BY_ID } from '../actions/getById'
 import { GET_POKEMON } from '../actions/getPokemons'
 import { GET_TYPES } from '../actions/getTypes'
+import { SET_LOADING } from '../actions/setLoading';
+import { RESET_POKEMON } from '../actions/resetPokemon';
+import { GET_BY_NAME } from '../actions/getPokemonByName';
 
 
 const initialState = {
@@ -10,8 +13,7 @@ const initialState = {
     allPokemons: [],
     types: [],
     pokemonDetail: [],
-    /* pokemonsDb: [],
-    pokemonsApi: [] */
+    loading: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -20,7 +22,8 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: action.payload,
-                allPokemons: action.payload
+                allPokemons: action.payload,
+                loading:false
             }
 
         case GET_TYPES:
@@ -32,7 +35,8 @@ const rootReducer = (state = initialState, action) => {
         case GET_BY_NAME:
             return {
                 ...state,
-                pokemons: action.payload
+                pokemons: action.payload,
+                loading: false
             }
 
         case POST_POKEMON:
@@ -62,26 +66,25 @@ const rootReducer = (state = initialState, action) => {
                 pokemons: action.payload === 'all' ? allPokemon : filterCreate
             }
 
-        case FILTERED_BY_NAME:
-            if (action.payload === "asc") 
-                return { ...state, pokemons: [...state.pokemons].sort((name1, name2) => name1.name > name2.name ? 1 : -1) }
-                return  { ...state, pokemons: [...state.pokemons].sort((name1, name2) => name1.name > name2.name ? -1 : 1) } 
-            /* const orderPokemon = state.allPokemons
+        case FILTERED_BY_NAME: 
+            const orderPokemon = state.allPokemons
             const orderName = action.payload === 'asc' ?
+            
             orderPokemon.sort(function(a, b) {
-                if(a.name > b.name) {
+                
+                if(a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1
                 }
-                if(b.name > a.name) {
+                if(b.name.toLowerCase() > a.name.toLowerCase()) {
                     return -1
                 }
                 return 0;
             }) : 
             orderPokemon.sort(function (a, b) {
-                if(a.name > b.name) {
+                if(a.name.toLowerCase() > b.name.toLowerCase()) {
                     return -1
                 }
-                if(b.name > a.name) {
+                if(b.name.toLowerCase() > a.name.toLowerCase()) {
                     return 1
                 }
                 return 0;
@@ -90,7 +93,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pokemons: orderName
-            } */
+            }
 
         case FILTERED_BY_POWER:
             const orderMaxPower = state.allPokemons
@@ -122,7 +125,20 @@ const rootReducer = (state = initialState, action) => {
             console.log('REDUCER',action.payload)
             return {
                 ...state,
-                pokemonDetail: action.payload
+                pokemonDetail: action.payload,
+                loading: false
+            }
+
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case RESET_POKEMON:
+            return {
+                ...state, 
+                pokemonDetail: []
             }
             
         

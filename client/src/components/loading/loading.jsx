@@ -8,10 +8,6 @@ const Loading = () => {
             <div className={style.circle}></div>
             <h1 className={style.h1}>LOADING...</h1>
             </div>
-            {/* <div className={style.h1Container}>
-            
-            </div> */}
-            
         </div>
         
         

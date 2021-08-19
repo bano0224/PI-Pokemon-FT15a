@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByPower } from '../../actions';
+import style from './byPower.module.css'
 
 
 const FilterByPower = ({setCurrentPage, setOrder}) => {
@@ -16,7 +17,7 @@ const FilterByPower = ({setCurrentPage, setOrder}) => {
     return(
         <div>
             <label>Ordenar Pokemons por poder</label>
-            <select onChange={e => {handleOrderByPower(e)}}>
+            <select className={style.selectCss} onChange={e => {handleOrderByPower(e)}}>
                 <option value='max'>Mayor Ataque</option>
                 <option value='min'>Menor Ataque</option>
             </select>

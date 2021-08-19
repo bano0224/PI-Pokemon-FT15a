@@ -5,7 +5,7 @@
   }
   
   .pokebola {
-      position: fixed;
+      position: relative;
       width: 150px;
       height: 150px;
       background-color: #FFF;
@@ -82,5 +82,18 @@
     align-items: center;
     flex-direction: column;
 }
+
+.videoContainer {
+    top: 0%;
+  left: 0%;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+
+video.fillWidth {
+    width: 100%;
+  }
+
 
 

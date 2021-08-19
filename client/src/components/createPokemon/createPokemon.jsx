@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPokemon } from '../../actions';
 import getTypes from '../../actions/getTypes'
 import style from './createPokemon.module.css'
+import NavBar from '../navBar/navBar';
+import Footer from '../footer/footer';
 
 const CreatePokemon = () => {
     const dispatch = useDispatch();
@@ -74,51 +76,62 @@ const CreatePokemon = () => {
     }
     
     return(
-        <div className={style.pokeCreate}>
-           <Link to='/home'><button>Volver a mundo Pokemon</button></Link>
-            <h1>Bienvenido al laboratorio del profesor Oak</h1>
-            <h2>En este PokeLab podrás crear tu propio Pokemon</h2>
-            <h3>Cuidado con las habilidades, no queremos que todo se vaya de control</h3>
-            <div className={style.trans}>
-
-            </div>
-            <div className={style.containerCreate}>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
+        <div className={style.universal}>
+            <NavBar className={style.nav}/>
+            <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
+                <div className={style.group}>
+                
+                <input required type='text' name='name' onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Nombre:</label>
-                <input required type='text' name='name' placeholder='Nombre' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+            
+                <input required type='number' min='0' max='200' name='hp' onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Salud:</label>
-                <input required type='number' min='0' max='200' name='hp' placeholder='Salud' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input required type='number' min='0' max='200' name='attack'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Ataque:</label>
-                <input required type='number' min='0' max='200' name='attack' placeholder='Ataque' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input required type='number' min='0' max='200' name='defense'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Defensa:</label>
-                <input required type='number' min='0' max='200' name='defense' placeholder='Defensa' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input required type='number' min='0' max='200' name='speed'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Velocidad:</label>
-                <input required type='number' min='0' max='200' name='speed' placeholder='Velocidad' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input required type='number' min='0' max='200' name='height'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Altura:</label>
-                <input required type='number' min='0' max='200' name='height' placeholder='Altura' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input required type='number' min='0' max='200' name='weight'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Peso:</label>
-                <input required type='number' min='0' max='200' name='weight' placeholder='Peso' onChange={e => handleChange(e)}/>
                 </div>
-                <div>
+                <div className={style.group}>
+                <input type='text' name='sprite'  onChange={e => handleChange(e)}/>
+                <span className={style.highlight}></span>
+                <span className={style.bar}></span>
                 <label>Imagen:</label>
-                <input type='text' name='sprite' placeholder='Imagen' onChange={e => handleChange(e)}/>
                 </div>
                 <div>
-                <label>Tipo:</label>
-                <select onChange={(e) => handleChangeType(e)} >
+                <p className={style.p}>Tipo:</p>
+                <select className={style.selectCss} onChange={(e) => handleChangeType(e)} >
                 {
                    getAllTypes?.map((type, i) => (
                         <option key={i} value={type.name}>{type.name}</option>
@@ -126,20 +139,20 @@ const CreatePokemon = () => {
                 }
                 </select>
                 </div>
-                <div>
+                {
+                input.types.map((el, i) => (
+                    <div className={style.map}key={i}>
+                        <p>{el}</p>
+                    <button onClick={() => handleDelete(el)}>X</button>
+                    </div>
+                ))
+            }
+            <div className={style.buttonForm}>
                 <button type='submit'>Crear personaje</button>
                 </div>
             </form>
-            </div>
             
-            {
-                input.types.map((el, i) => (
-                    <div key={i}>
-                        <p>{el}</p>
-                        <button onClick={() => handleDelete(el)}>X</button>
-                    </div>
-                ))
-            } 
+            <Footer className={style.footer}/>
         </div>
     )
 }

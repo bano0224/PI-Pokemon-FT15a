@@ -14,7 +14,7 @@ const CleanFilter = () => {
 
     return(
         <div>
-            <button className={style.Filter} onClick={e=>{handleSubmit(e)}}>Limpiar filtros</button>
+            <button className={style.Filter} onClick={e=>{handleSubmit(e)}}>Limpiar</button>
         </div>
     )
 }

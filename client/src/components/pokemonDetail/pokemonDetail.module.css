@@ -1,36 +1,31 @@
-/* .noSelect {
-    -webkit-touch-callout: none;
-      -webkit-user-select: none;
-       -khtml-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
-          -webkit-tap-highlight-color: transparent;
-  }
-  
-  button {
-      width: 150px;
-      height: 50px;
-      cursor: pointer;
-      background: #6dd6d1;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0px 10px 25px #57aba7, 0px -10px 25px #a6fffa, inset 0px -5px 10px #57aba7, inset 0px 5px 10px #a6fffa;
-      font-family: 'Damion', cursive;
-      color: white;
-      font-size: 20px;
-      transition: 500ms;
-  }
-  
-  button:hover {
-          border: 2px solid #6dd6d1;
-      animation: hueRotation 2s linear infinite;
-  }
-  
-  @keyframes hueRotation {
-      to {filter: hue-rotate(360deg);}
-  }
-  
-  button:focus {
-      outline: none;
-  } */
+.universal {
+    height: 100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(28,40,51);
+    background: radial-gradient(circle, rgba(28,40,51,1) 0%, rgba(0,0,0,1) 53%);
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+}
+
+.detail {
+    height: 600px;
+    width: 300px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(5, 5, 5, 0.45);
+    box-shadow: 10px 10px 150px rgba(253, 253, 253, 0.575);
+}
+
+.buttonDetail {
+    margin-top: 45px;
+}

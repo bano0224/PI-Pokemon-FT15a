@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { filteredByTypes } from '../../actions';
+import style from './byTypes.module.css'
 
 
 const FilterByTypes = ({allTypes}) => {
@@ -13,7 +14,7 @@ const FilterByTypes = ({allTypes}) => {
     return(
         <div>
             <label>Ordenar Pokemons por tipo</label>
-            <select onChange={e => handleFilterByTypes(e)}>
+            <select className={style.selectCss} onChange={e => handleFilterByTypes(e)}>
                 <option value='all'>Todos</option>
                 {
                     allTypes && allTypes.map(type => {

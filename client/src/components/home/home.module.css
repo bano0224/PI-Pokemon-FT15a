@@ -3,12 +3,29 @@
     padding: 0;
 }
 
+.universal {
+    width: 100%;
+    height: 100%;
+    background: white;
+    /* border: solid yellow 5px */
+    background: rgb(28,40,51);
+background: radial-gradient(circle, rgba(28,40,51,1) 0%, rgba(0,0,0,1) 61%);
+}
+
+/* .nav {
+    width: 100%;
+    height: 20%;
+} */
+
 .bodyDiv {
-    width: auto;
+    width: 80%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background: rgb(44,62,80);
     background: rgb(44,62,80);
-    background: radial-gradient(circle, rgba(44,62,80,1) 0%, rgba(23,32,42,1) 100%);
+    
     /* background-image: url('https://swall.teahub.io/photos/small/95-956384_pokemon-anatomy-wallpaper-fondos-de-pantalla-anatomia.jpg');
     background-repeat:no-repeat;
     background-position: center center;
@@ -17,51 +34,42 @@
     
 }
 
-.header {
-    height: 10%;
-    background: white;
-    border-radius: 1em;
-    margin: 1em;
-    display: flex;
-    justify-content: center;
-}
-
-.title {
-    width: auto;
-    font-family: Pokemon;
-    color: #F4D03F;
-    font-size: 40px;
-    letter-spacing: 0;
-    text-shadow: -3px -3px 3px black, 3px -3px 3px #6495ED, -3px 3px 3px #6495ED, #6495ED 3px 3px 3px ;
-    justify-content: center;
-    border: 5px solid pink;
-}
-
-.nav {
-    height: 10%;
-    border-radius: 1em;
-    margin: 1em;
-    display:flex;
-    flex-direction: column;
-}
-
 .filter {
-    border: 5px solid green;
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
+    /* border: 5px solid green; */
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 
 .page {
     display: flex;
-    justify-content: row;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
+
+}
+
+.render {
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
+    /* background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover; */
+    /* border: solid 5px red; */
+    width: 80%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
     width: 100%;
-    height: 63%;
-    background: white;
-    margin: 1em;
+    height: 70%;
+    background: rgb(28,40,51);
+background: radial-gradient(circle, rgba(28,40,51,1) 0%, rgba(0,0,0,1) 61%);
     
 }
 
@@ -79,13 +87,15 @@
  */
 }
 
-.footer {
-    height: 10%;
-    background: white;
-    border-radius: 1em;
-    margin:1em;
+.prueba {
+    background-color: rgba(255, 0, 0, 0.5)
 }
-.divGeneral {
+/* .footer {
+    width: 100%;
+    height: 20%;
+    
+} */
+/* .divGeneral {
     width:100%;
     height: 100%;
     display: flex;
@@ -95,14 +105,6 @@
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-}
-
-/* .page {
-    display:flex;
-    flex-direction: row;
-    justify-content:space-around;
-    align-items: center;
-    padding: 0px;
 } */
 
 .div {
@@ -140,17 +142,4 @@
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* .pagination {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px;
-    background: red;
-} */
 
-@font-face {
-    font-family: Pokemon;
-    src: url("./PokeSolid.ttf");
-    -webkit-text-stroke: 10px black;
-}

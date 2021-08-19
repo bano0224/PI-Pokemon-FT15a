@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { filterByName } from '../../actions';
+import style from './ascDesc.module.css'
 
 
 const FilterByAz = ({setCurrentPage, setOrder}) => {
@@ -16,7 +17,7 @@ const FilterByAz = ({setCurrentPage, setOrder}) => {
     return(
         <div>
             <label>Ordenar Pokemons A-Z</label>
-            <select onChange={e => handleOrderByName(e)}>
+            <select className={style.selectCss} onChange={e => handleOrderByName(e)}>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>

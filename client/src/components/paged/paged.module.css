@@ -1,10 +1,12 @@
 .page {
+    background: radial-gradient(circle, rgba(44,62,80,1) 0%, black 100%);
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    padding: 0.5em;
+    padding: auto;
+    margin: auto;
 }
 
 
@@ -43,7 +45,7 @@
       border: none;
       border-radius: 50px;
       box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444, inset -5px -5px 10px #222;
-      color: #222;
+      color: rgba(44,62,80,1);
       font-size: 16px;
   }
   

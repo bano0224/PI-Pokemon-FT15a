@@ -3,7 +3,8 @@ import { POKEMON_URL, POKEMON_TYPES, POKEMON_QUERY }  from '../constantes'
 
 
 
-export const GET_BY_NAME = "GET_BY_NAME"
+
+
 export const POST_POKEMON = "POST_POKEMON"
 export const FILTERED_BY_TYPES = "FILTERED_BY_TYPES"
 export const FILTERED_BY_ORIGIN = "FILTERED_BY_ORIGIN"
@@ -37,20 +38,6 @@ export const filterByPower = (payload) => {
     return {
         type: FILTERED_BY_POWER,
         payload
-    }
-}
-
-export const getPokemonsByName = (payload) => {
-    return async(dispatch) => {
-        try {
-            await axios.get(POKEMON_QUERY + payload)
-            .then(res => { dispatch
-            ({type: GET_BY_NAME,
-            payload:res.data })
-            })
-        } catch(error) {
-            console.log('Pokemon no encontrado')
-        }
     }
 }
 

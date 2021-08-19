@@ -7,6 +7,7 @@ const landingPage = () => {
     return(
         <div className={style.landingPage}>
            <div className={style.container}>
+               <h1>Bienvenido a mundo Pokemon</h1>
                 <Link to='/home' className={style.pokebola}>
 		            <div class={style.pokebola2}></div>
 	            </Link> 

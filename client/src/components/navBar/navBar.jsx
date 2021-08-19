@@ -7,14 +7,14 @@ import style from './navBar.module.css'
 const NavBar = () => {
 
     return(
-        <div>
-            <h1>POKEMON</h1>
-                <Link to='/pokemons'>
-                    <button className={style.create}>
+        <div className={style.Nav}>
+            <Link to='/pokemons'>
+                <button className={style.create}>
                         Crear Pokemon
-                    </button>
-                    </Link>
-                <SearchBar/>
+                </button>
+            </Link>
+            <h1 className={style.Title}>App Pokedex</h1>
+            <SearchBar/>
         </div>
     )
 }
