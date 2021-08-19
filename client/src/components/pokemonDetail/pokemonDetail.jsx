@@ -34,7 +34,7 @@ const PokemonDetail = (props) => {
                :
                
                <div className={style.detail}key={pokeDetail.id}>
-                   <img src={pokeDetail[0]?.sprite ? pokeDetail[0].sprite : SPRITE_CREATE}/>
+                   <img className={style.image} src={pokeDetail[0]?.sprite ? pokeDetail[0].sprite : SPRITE_CREATE}/>
                    <h1>{pokeDetail[0]?.name}</h1>
                    <h4>TIPO: {pokeDetail[0]?.types.map(type => type.name + (' '))}</h4>
                    <div>

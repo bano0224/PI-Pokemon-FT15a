@@ -78,6 +78,7 @@ const CreatePokemon = () => {
     return(
         <div className={style.universal}>
             <NavBar className={style.nav}/>
+            <div className={style.mask}>
             <form className={style.form} onSubmit={(e) => handleSubmit(e)}>
                 <div className={style.group}>
                 
@@ -124,7 +125,7 @@ const CreatePokemon = () => {
                 <label>Peso:</label>
                 </div>
                 <div className={style.group}>
-                <input type='text' name='sprite'  onChange={e => handleChange(e)}/>
+                <input required type='text' name='sprite' onChange={e => handleChange(e)}/>
                 <span className={style.highlight}></span>
                 <span className={style.bar}></span>
                 <label>Imagen:</label>
@@ -142,7 +143,7 @@ const CreatePokemon = () => {
                 {
                 input.types.map((el, i) => (
                     <div className={style.map}key={i}>
-                        <p>{el}</p>
+                        <h3>{el}</h3>
                     <button onClick={() => handleDelete(el)}>X</button>
                     </div>
                 ))
@@ -150,8 +151,11 @@ const CreatePokemon = () => {
             <div className={style.buttonForm}>
                 <button type='submit'>Crear personaje</button>
                 </div>
+            <Link to='/home' className={style.buttonForm}>
+                <button type='submit'>Volver a Pokedex</button>
+            </Link>
             </form>
-            
+            </div>
             <Footer className={style.footer}/>
         </div>
     )
