@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', { //creamos un modelo para Pokemon, que es la forma abstracta de representar nuestra tabla
     id: {
-      type: DataTypes.UUID, //es un tipo predeterminado de sequelize que genera un ID random con números y letras
+      type: DataTypes.UUID, //es un tipo predeterminado de sequelize que genera un ID random
       defaultValue: DataTypes.UUIDV4,
       allowNull: false, //este campo no puede ser null
       primaryKey: true,
